@@ -1,0 +1,19 @@
+
+.dropdown {
+  list-style-type: none;
+  background-color: #FFF;
+  padding: 0px;
+  border-radius: 5px;
+}
+
+.dropdown__item {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 8px;
+}
+
+.dropdown__item:hover {
+  background-color:#DEDEDE;
+  cursor: pointer;
+}

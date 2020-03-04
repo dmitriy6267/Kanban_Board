@@ -1,0 +1,11 @@
+.card__action {
+  width: 258px;
+  background-color: #FFF;
+  margin: 15px auto;
+  padding: 7px 8px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 21px;
+  border-radius: 5px;
+}

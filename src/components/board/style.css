@@ -1,0 +1,9 @@
+.board {
+  display: flex;
+  justify-content: space-between;
+  width: 1235px;
+  height: 590px;
+  padding: 19px 20px 16px 32px;
+  box-sizing: border-box;
+  background-color: #06F;
+}

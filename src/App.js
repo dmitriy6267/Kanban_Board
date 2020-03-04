@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from './components/header';
+import Board from './components/board';
+import Footer from './components/footer';
+
+class App extends Component {
+
+  state = {
+    backlogData: [],
+    readyData: [],
+    inProgressData: [],
+    finishedData: []
+  }
+
+  
+  render () {
+    return (
+      <div className="App">
+        <Header />
+        <Board  />
+        <Footer
+              activeTasks={this.state.activeTasks}
+              finishedTasks={this.state.finishedTasks}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;

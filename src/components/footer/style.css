@@ -1,0 +1,23 @@
+
+.footer {
+  width: 1235px;
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0067A3;
+  padding-left: 21px;
+  padding-right: 19px;
+  box-sizing: border-box;
+}
+
+.footer__text, .footer__autor {
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.footer__text {
+  margin-right: 36px;
+}

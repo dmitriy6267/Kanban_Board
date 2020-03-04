@@ -1,0 +1,19 @@
+.column {
+  overflow-y: auto;
+  width: 282px;
+  background-color: #EBECF0;
+  border-radius: 10px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.column__name {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.column__items {
+  list-style-type: none;
+  padding: 0;
+}
