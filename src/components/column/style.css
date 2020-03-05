@@ -1,6 +1,7 @@
 .column {
   overflow-y: auto;
   width: 282px;
+  height: auto;
   background-color: #EBECF0;
   border-radius: 10px;
   padding: 12px;

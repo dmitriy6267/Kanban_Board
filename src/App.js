@@ -9,18 +9,24 @@ import Footer from './components/footer';
 class App extends Component {
 
   state = {
-    backlogData: [],
-    readyData: [],
-    inProgressData: [],
-    finishedData: []
-  }
+    activeTasks: (localStorage.getItem(`backlog`) !== null ? JSON.parse(localStorage.getItem(`backlog`)) : []).length,
+    finishedTasks: (localStorage.getItem(`finished`) !== null ? JSON.parse(localStorage.getItem(`finished`)) : []).length
+  };
 
-  
+  countTasks = () => {
+    this.setState({
+      activeTasks: (localStorage.getItem(`backlog`) !== null ? JSON.parse(localStorage.getItem(`backlog`)) : []).length,
+      finishedTasks: (localStorage.getItem(`finished`) !== null ? JSON.parse(localStorage.getItem(`finished`)) : []).length
+    });
+    console.log(`countTasks`);
+  };
+
   render () {
     return (
       <div className="App">
         <Header />
-        <Board  />
+        <Board
+              countTasks={this.countTasks}/>
         <Footer
               activeTasks={this.state.activeTasks}
               finishedTasks={this.state.finishedTasks}

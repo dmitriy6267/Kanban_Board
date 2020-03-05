@@ -19,13 +19,13 @@
 .user-wrapper {
   display: none;
   position: absolute;
-  left: 1087px;
+  /* left: 1390px; */
   top: 87px;
 }
 
 .user-wrapper--show {
   position: absolute;
-  left: 1087px;
+  right: 30px;
   top: 65px;
   z-index: 100;
 }
@@ -51,11 +51,15 @@
 
 .user-menu__text {
   display: block;
-  padding-left: 7px;
+  padding: 3px 7px;
   text-decoration: none;
   color: #000;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   line-height: 16px;
   cursor: pointer;
+}
+
+.user-menu__text:hover {
+  background-color: #DEDEDE;
 }
