@@ -19,13 +19,11 @@
 .user-wrapper {
   display: none;
   position: absolute;
-  /* left: 1390px; */
-  top: 87px;
 }
 
 .user-wrapper--show {
   position: absolute;
-  right: 30px;
+  left: 1087px;
   top: 65px;
   z-index: 100;
 }

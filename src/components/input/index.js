@@ -2,7 +2,7 @@ import React from 'react';
 
 import './style.css';
 
-const Input = ({value, onChange, onBlur}) => {
+const Input = ({ value, onChange, onBlur }) => {
 
   return (
     <input  type="text"

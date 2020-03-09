@@ -1,0 +1,54 @@
+
+.details {
+  position: absolute;
+  overflow-y: auto;
+  width: 1185px;
+  height: 548px;
+  padding: 8px;
+  background-color: #FFF;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  z-index: 99;
+}
+
+.details__header {
+  font-size: 24px;
+  line-height: 28px
+}
+
+.details__text {
+  margin-top: 35px;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.details__close {
+  position: absolute;
+  right: 23px;
+  top: 17px;
+  width: 25px;
+  height: 25px;
+  opacity: 0.5;
+}
+
+.details__close:hover {
+  opacity: 1;
+}
+
+.details__close:before, .details__close:after {
+  position: absolute;
+  left: 15px;
+  content: '';
+  height: 33px;
+  width: 2px;
+  background-color: #000;
+}
+
+.details__close:before {
+  transform: rotate(45deg);
+}
+
+.details__close:after {
+  transform: rotate(-45deg);
+}

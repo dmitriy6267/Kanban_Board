@@ -49,7 +49,7 @@ checkId = () => {
     data.push(item);
     localStorage.setItem(`${id}`, JSON.stringify(data));
     let newData = [];
-    let previousColumn = '';
+    let previousColumn;
 
     switch (id) {
       case 'ready': previousColumn = 'backlog';
@@ -75,12 +75,12 @@ checkId = () => {
 
 render () {
 
-  const { id, name } = this.props;
+  const { id, name, showDetails } = this.props;
   const storageData = localStorage.getItem(`${id}`) !== null ? JSON.parse(localStorage.getItem(`${id}`)) : [];
 
   return (
     <div className="column">
-      <h1 className="column__name">{name}</h1>
+      <h1 className="column__name" onClick={showDetails}>{name}</h1>
       <div>
         <ul className="column__items">
         {storageData.map((item) => {
@@ -92,8 +92,8 @@ render () {
         </ul>
         { this.checkId() }
         <Button
+            name={'+ Add card'}
             onClick={this.state.isBtnActive ? this.onAddCard : this.onChangeBtnState}
-            disabled={true}
         >+ Add card</Button>
       </div>
     </div>

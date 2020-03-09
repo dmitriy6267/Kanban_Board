@@ -10,15 +10,22 @@ class App extends Component {
 
   state = {
     activeTasks: (localStorage.getItem(`backlog`) !== null ? JSON.parse(localStorage.getItem(`backlog`)) : []).length,
-    finishedTasks: (localStorage.getItem(`finished`) !== null ? JSON.parse(localStorage.getItem(`finished`)) : []).length
+    finishedTasks: (localStorage.getItem(`finished`) !== null ? JSON.parse(localStorage.getItem(`finished`)) : []).length,
+    clearBoard: false
   };
+
+  clearBoard = () => {
+    localStorage.clear();
+    this.setState({
+      clearBoard: !this.state.clearBoard
+    })
+  }
 
   countTasks = () => {
     this.setState({
       activeTasks: (localStorage.getItem(`backlog`) !== null ? JSON.parse(localStorage.getItem(`backlog`)) : []).length,
       finishedTasks: (localStorage.getItem(`finished`) !== null ? JSON.parse(localStorage.getItem(`finished`)) : []).length
     });
-    console.log(`countTasks`);
   };
 
   render () {
@@ -26,10 +33,15 @@ class App extends Component {
       <div className="App">
         <Header />
         <Board
-              countTasks={this.countTasks}/>
+              countTasks={this.countTasks}
+              backlogId='backlog'
+              readyId='ready'
+              inProgressId='inProgress'
+              finishedId='finished'/>
         <Footer
               activeTasks={this.state.activeTasks}
               finishedTasks={this.state.finishedTasks}
+              clearBoard={this.clearBoard}
         />
       </div>
     );
