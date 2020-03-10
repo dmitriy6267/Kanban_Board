@@ -24,7 +24,7 @@ const Details = ({ id, showDetails }) => {
                 четырьмя непонятными словами, фигурой и восклицательным
                 знаком.
               </p>
-              <p className="details__text">Task created: <b>{JSON.parse(localStorage.getItem(`${item}`))}</b></p>
+              <p className="details__text">Task localStorageated: <b>{JSON.parse(localStorage.getItem(`${item}`))}</b></p>
             </div>)
               })}
       </ul>
