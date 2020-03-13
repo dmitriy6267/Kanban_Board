@@ -90,11 +90,15 @@ class Column extends Component {
       if (previousCards[i] !== item) {
         newData.push(previousCards[i]);
       }
-    }
+    };
+    console.log(`${id} length is ${newData.length}`)
     this.props.onChangeState();
     this.onChangeBtnState();
+    if (id === 'finished') {
+      this.props.countTasks(0, data.length);
+    };
     localStorage.setItem(previousColumn, JSON.stringify(newData));
-    this.props.countTasks();
+
   };
 
   render() {

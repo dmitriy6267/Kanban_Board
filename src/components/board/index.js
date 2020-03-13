@@ -37,7 +37,9 @@ class Board extends Component {
       });
       localStorage.setItem(`backlog`, JSON.stringify(data));
       localStorage.setItem(inputValue, JSON.stringify(date.toLocaleString()));
+      this.props.countTasks(data.length, 0);
     }
+
   };
 
   onShowDetails = e => {

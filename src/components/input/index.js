@@ -7,7 +7,7 @@ const Input = ({ value, onChange, onBlur }) => {
     <input
       type="text"
       className="input"
-      placeholder="__________________________________"
+      placeholder="________________________________________"
       onChange={onChange}
       onBlur={onBlur}
       value={value}

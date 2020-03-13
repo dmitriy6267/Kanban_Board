@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import './App.css';
-
 import Header from './components/header';
 import Board from './components/board';
 import Footer from './components/footer';
@@ -9,26 +7,12 @@ import Footer from './components/footer';
 class App extends Component {
 
   state = {
-    activeTasks: (localStorage.getItem(`backlog`) !== null
-      ? JSON.parse(localStorage.getItem(`backlog`))
-      : []
-    ).length,
-    finishedTasks: (localStorage.getItem(`finished`) !== null
-      ? JSON.parse(localStorage.getItem(`finished`))
-      : []
-    ).length,
+    activeTasks: 0,
+    finishedTasks: 0,
     clearBoard: false,
   };
 
-  clearBoard = () => {
-    localStorage.clear();
-    this.setState({
-      clearBoard: !this.state.clearBoard,
-    });
-    this.countTasks();
-  };
-
-  countTasks = () => {
+  componentDidMount () {
     this.setState({
       activeTasks: (localStorage.getItem(`backlog`) !== null
         ? JSON.parse(localStorage.getItem(`backlog`))
@@ -39,6 +23,28 @@ class App extends Component {
         : []
       ).length,
     });
+  }
+
+  clearBoard = () => {
+    localStorage.clear();
+    this.setState({
+      activeTasks: 0,
+      finishedTasks: 0,
+      clearBoard: !this.state.clearBoard,
+    });
+    this.countTasks();
+  };
+
+  countTasks = (backlog, finished) => {
+    if (backlog === 0) {
+      this.setState({
+        finishedTasks: finished
+      });
+    } else if (finished === 0){
+      this.setState({
+        activeTasks: backlog
+      });
+    };
   };
 
   render() {
