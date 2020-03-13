@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import './style.css';
 
 class Dropdown extends Component {
-
+  
   onGetData = () => {
-    const {id} = this.props;
+    const { id } = this.props;
     let data = [];
     switch (id) {
       case 'ready':
@@ -17,25 +17,28 @@ class Dropdown extends Component {
       case 'finished':
         data = localStorage.getItem(`inProgress`) !== null ? JSON.parse(localStorage.getItem(`inProgress`)) : [];
         break;
-      default: data = "Ooops! Something goes wrong...";
+      default:
+        data = 'Ooops! Something goes wrong...';
     }
     return data;
-  }
+  };
 
-  render () {
+  render() {
     return (
-        <ul className="dropdown">
-              {this.onGetData().map((item) => {
-                return (
-                  <li className="dropdown__item"
-                      onClick={this.props.clickItem}
-                      key={item}>
-                      {item}
-                  </li>
-                )
-              })}
-        </ul>
-    )
+      <ul className="dropdown">
+        {this.onGetData().map(item => {
+          return (
+            <li
+              className="dropdown__item"
+              onClick={this.props.clickItem}
+              key={item}
+            >
+              {item}
+            </li>
+          );
+        })}
+      </ul>
+    );
   }
 }
 

@@ -2,15 +2,13 @@ import React from 'react';
 
 import './style.css';
 
-const Button = ({ onClick, name }) => {
-
+const Button = ({ onClick, name, id }) => {
+  const classNames = `button ${id}`;
   return (
-    <button
-      onClick={onClick}
-      className="button">
-        {name}
+    <button onClick={onClick} className={classNames}>
+      {name}
     </button>
-  )
-}
+  );
+};
 
 export default Button;

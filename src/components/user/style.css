@@ -18,13 +18,12 @@
 
 .user-wrapper {
   display: none;
-  position: absolute;
 }
 
 .user-wrapper--show {
   position: absolute;
-  left: 1087px;
-  top: 65px;
+  left: -77px;
+  top: 47px;
   z-index: 100;
 }
 
@@ -35,9 +34,11 @@
   margin-bottom: -5px;
   background-color: #FFF;
   transform: rotate(45deg);
+  /* z-index: -1; */
 }
 
 .user-menu {
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -45,6 +46,7 @@
   height: 60px;
   background-color: #FFF;
   border-radius: 5px;
+  z-index: 101;
 }
 
 .user-menu__text {

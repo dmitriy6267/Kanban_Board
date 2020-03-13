@@ -1,13 +1,12 @@
 
 .footer {
-  width: 1235px;
-  height: 55px;
+  /* width: 1235px; */
+  min-height: 55px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #0067A3;
-  padding-left: 21px;
-  padding-right: 19px;
+  padding: 5px 19px 5px 21px;
   box-sizing: border-box;
 }
 

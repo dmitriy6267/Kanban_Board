@@ -1,107 +1,114 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import './style.css';
 
 import Column from '../column';
 import Details from '../details';
 
-
 class Board extends Component {
-
   state = {
-    inputValue: "",
+    inputValue: '',
     backlog: [],
     ready: [],
     inProgress: [],
     finished: [],
     showDetails: false,
     showDetailsId: '',
-  }
+  };
 
-  onChangeInput = (event) => {
+  onChangeInput = event => {
     this.setState({
-      inputValue: event.target.value
+      inputValue: event.target.value,
     });
   };
 
   onAddCard = () => {
     const { inputValue } = this.state;
     const date = new Date();
-      if (inputValue === '') {
-      } else {
-        const data = localStorage.getItem(`backlog`) !== null ? JSON.parse(localStorage.getItem(`backlog`)) : [];
-        data.push(inputValue);
-        this.setState({
-          inputValue: "",
-        });
-        localStorage.setItem(`backlog`, JSON.stringify(data));
-        localStorage.setItem(inputValue, JSON.stringify(date.toLocaleString()))
-      }
+    if (inputValue === '') {
+    } else {
+      const data =
+        localStorage.getItem(`backlog`) !== null
+          ? JSON.parse(localStorage.getItem(`backlog`))
+          : [];
+      data.push(inputValue);
+      this.setState({
+        inputValue: '',
+      });
+      localStorage.setItem(`backlog`, JSON.stringify(data));
+      localStorage.setItem(inputValue, JSON.stringify(date.toLocaleString()));
+    }
   };
 
-  onShowDetails = (e) => {
+  onShowDetails = e => {
     let columnName = e.target.innerHTML.toLowerCase();
     if (columnName === 'in progress') {
-    columnName = 'inProgress';
-    };
+      columnName = 'inProgress';
+    }
     this.setState({
       showDetailsId: columnName,
-      showDetails: !this.state.showDetails
+      showDetails: !this.state.showDetails,
     });
   };
 
   onChangeState = () => {
-      let {backlog, ready, inProgress, finished} = this.state;
-    this.setState ({
+    let { backlog, ready, inProgress, finished } = this.state;
+    this.setState({
       backlog: [backlog],
       ready: [ready],
       inProgress: [inProgress],
-      finished: [finished]
+      finished: [finished],
     });
   };
 
-  render () {
-
+  render() {
     return (
-        <div className="board">
-          <Column
+      <div className="board">
+        <Column
+          showDetails={this.onShowDetails}
+          countTasks={this.props.countTasks}
+          onChangeInput={this.onChangeInput}
+          onAddCard={this.onAddCard}
+          onChangeState={this.onChangeState}
+          onClickItem={this.onClickItem}
+          name="Backlog"
+          id="backlog"
+        />
+        <Column
+          showDetails={this.onShowDetails}
+          onAddCard={this.onAddCard}
+          countTasks={this.props.countTasks}
+          onChangeState={this.onChangeState}
+          onClickItem={this.onClickItem}
+          name="Ready"
+          id="ready"
+        />
+        <Column
+          showDetails={this.onShowDetails}
+          onAddCard={this.onAddCard}
+          countTasks={this.props.countTasks}
+          onChangeState={this.onChangeState}
+          onClickItem={this.onClickItem}
+          name="In Progress"
+          id="inProgress"
+        />
+        <Column
+          showDetails={this.onShowDetails}
+          onAddCard={this.onAddCard}
+          countTasks={this.props.countTasks}
+          onChangeState={this.onChangeState}
+          onClickItem={this.onClickItem}
+          name="Finished"
+          id="finished"
+        />
+        {this.state.showDetails ? (
+          <Details
+            id={this.state.showDetailsId}
             showDetails={this.onShowDetails}
-            countTasks={this.props.countTasks}
-            onChangeInput={this.onChangeInput}
-            onAddCard={this.onAddCard}
-            onChangeState={this.onChangeState}
-            onClickItem={this.onClickItem}
-            name="Backlog"
-            id={this.props.backlogId} />
-          <Column
-            showDetails={this.onShowDetails}
-            onAddCard={this.onAddCard}
-            countTasks={this.props.countTasks}
-            onChangeState={this.onChangeState}
-            onClickItem={this.onClickItem}
-            name="Ready"
-            id={this.props.readyId} />
-          <Column
-            showDetails={this.onShowDetails}
-            onAddCard={this.onAddCard}
-            countTasks={this.props.countTasks}
-            onChangeState={this.onChangeState}
-            onClickItem={this.onClickItem}
-            name="In Progress"
-            id={this.props.inProgressId} />
-          <Column
-            showDetails={this.onShowDetails}
-            onAddCard={this.onAddCard}
-            countTasks={this.props.countTasks}
-            onChangeState={this.onChangeState}
-            onClickItem={this.onClickItem}
-            name="Finished"
-            id={this.props.finishedId} />
-          {this.state.showDetails ? <Details
-                                        id={this.state.showDetailsId}
-                                        showDetails={this.onShowDetails} /> : null}
-        </div>
-    )
+          />
+        ) : null}
+      </div>
+    );
   }
 }
 

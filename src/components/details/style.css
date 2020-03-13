@@ -2,11 +2,11 @@
 .details {
   position: absolute;
   overflow-y: auto;
-  width: 1185px;
+  margin: 0 15px 0 0;
+  width: 94%;
   height: 548px;
   padding: 8px;
   background-color: #FFF;
-  box-sizing: border-box;
   border-radius: 5px;
   font-family: 'Roboto', sans-serif;
   z-index: 99;
@@ -30,6 +30,7 @@
   width: 25px;
   height: 25px;
   opacity: 0.5;
+  cursor: pointer;
 }
 
 .details__close:hover {

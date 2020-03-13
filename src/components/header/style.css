@@ -3,8 +3,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1235px;
-  height: 55px;
+  /* width: 1235px; */
+  min-height: 55px;
   background-color: #0067A3;
   padding-left: 20px;
   padding-right: 22px;
