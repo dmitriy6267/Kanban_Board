@@ -20,3 +20,10 @@
 .footer__text {
   margin-right: 36px;
 }
+
+@media screen and (max-width: 800px) {
+
+  .footer__autor {
+    display: none;
+  }
+}

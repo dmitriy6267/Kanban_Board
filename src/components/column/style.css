@@ -20,3 +20,11 @@
   list-style-type: none;
   padding: 0;
 }
+
+@media screen and (max-width: 800px) {
+
+  .column {
+    width: auto;
+    margin: 29px 21px;
+  }
+}

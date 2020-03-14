@@ -53,3 +53,10 @@
 .details__close:after {
   transform: rotate(-45deg);
 }
+
+@media screen and (max-width: 800px) {
+  .details {
+    top: 15px;
+    left: 15px;
+  }
+}
