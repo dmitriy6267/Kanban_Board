@@ -37,7 +37,6 @@ class Column extends Component {
   onAddCard = () => {
     this.props.onAddCard();
     this.onChangeBtnState();
-    this.props.countTasks();
   };
 
   checkId = () => {
@@ -91,14 +90,14 @@ class Column extends Component {
         newData.push(previousCards[i]);
       }
     };
-    console.log(`${id} length is ${newData.length}`)
     this.props.onChangeState();
     this.onChangeBtnState();
     if (id === 'finished') {
       this.props.countTasks(0, data.length);
+    } else if (previousColumn === "backlog") {
+      this.props.countTasks(-1, data.length);
     };
     localStorage.setItem(previousColumn, JSON.stringify(newData));
-
   };
 
   render() {

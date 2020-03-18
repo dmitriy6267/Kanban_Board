@@ -44,6 +44,10 @@ class App extends Component {
       this.setState({
         activeTasks: backlog
       });
+    } else if (backlog === -1) {
+      this.setState({
+        activeTasks: this.state.activeTasks - 1
+      });
     };
   };
 
