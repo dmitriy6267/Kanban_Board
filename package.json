@@ -1,4 +1,5 @@
 {
+  "homepage": "http://dmitriy6267.github.io/Kanban_Board",
   "name": "kanban1",
   "version": "0.1.0",
   "private": true,
@@ -15,11 +16,13 @@
     "styled-components": "^5.0.1"
   },
   "scripts": {
+    "predeploy": "npm rnu build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettier": "prettier --write \"src/**/*.js\" \"src/**/*.jsx\""
+    "prettier": "prettier --write \"src/**/*.js\" \"src/**/*.jsx\""    
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
